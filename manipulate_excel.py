@@ -3,6 +3,7 @@ import openpyxl
 inv_file = openpyxl.load_workbook("inventory.xlsx")
 working_sheet = inv_file["Sheet1"]
 
+#comment added from local repo
 # print(working_sheet.max_row)
 
 '''Logic for calculating & printing total value of each Supplier (inventory * cost), calculate total for each row
