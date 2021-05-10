@@ -20,7 +20,7 @@ for each_row in range(2, working_sheet.max_row + 1):
 
 print(supplier_tot_invent_val)
 inv_file.save("inventory_total.xlsx")
-# Logic for calculating and printing total number of products for each supplier
+#x Logic for calculating and printing total number of products for each supplier
 supplier_prod_count_set = {}
 
 for prod_row in range(2, working_sheet.max_row + 1):
