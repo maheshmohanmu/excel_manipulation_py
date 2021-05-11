@@ -3,10 +3,10 @@ import openpyxl
 inv_file = openpyxl.load_workbook("inventory.xlsx")
 working_sheet = inv_file["Sheet1"]
 
-# direct edit from github
-# changes from testbranch2
-#comment added from local repo
-# print(working_sheet.max_row)
+## direct edit from github
+## changes from testbranch2
+##comment added from local repo
+## print(working_sheet.max_row)
 
 '''Logic for calculating & printing total value of each Supplier (inventory * cost), calculate total for each row
 and save in a new file'''
@@ -23,7 +23,7 @@ for each_row in range(2, working_sheet.max_row + 1):
 
 print(supplier_tot_invent_val)
 inv_file.save("inventory_total.xlsx")
-#x Logic for calculating and printing total number of products for each supplier
+##x Logic for calculating and printing total number of products for each supplier
 supplier_prod_count_set = {}
 
 for prod_row in range(2, working_sheet.max_row + 1):
