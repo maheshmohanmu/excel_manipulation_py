@@ -5,13 +5,14 @@ pipeline {
     stages {
         stage("build") {
             steps {
-            echo 'building code' 
+            echo 'building python excel manipulation tool' 
+            python manipulate_excel.py > output_file.txt
             }
            }
        
         stage("test") {
             steps {
-            echo 'testing code' 
+            cat output_file.txt
             }
            }
        
