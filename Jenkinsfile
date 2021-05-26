@@ -6,13 +6,13 @@ pipeline {
         stage("build") {
             steps {
             echo 'building python excel manipulation tool' 
-            python manipulate_excel.py > output_file.txt
+            sh 'python manipulate_excel.py > output_file.txt'
             }
            }
        
         stage("test") {
             steps {
-            cat output_file.txt
+            sh 'cat output_file.txt'
             }
            }
        
