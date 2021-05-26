@@ -2,6 +2,11 @@ pipeline {
 
     agent any
     
+    parameters {
+        choice(name: 'VERSION', choices:['0.1', '1.0', '1,1'], description:'')
+        booleanParam(name: 'ExecuteTest', defaultValue: true, description:'')
+    }
+    
     stages {
         stage("build") {
             steps {
@@ -11,6 +16,9 @@ pipeline {
            }
        
         stage("test") {
+            expression {
+                params.ExecuteTest == true
+            }
             steps {
             sh 'cat output_file.txt'
             }
@@ -18,7 +26,7 @@ pipeline {
        
         stage("deploy") {
             steps {
-            echo 'deploying code' 
+            echo "deploying code of version ${VERSION}"
             }
            }
         }
