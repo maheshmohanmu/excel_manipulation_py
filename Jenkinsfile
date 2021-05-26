@@ -16,8 +16,11 @@ pipeline {
            }
        
         stage("test") {
-            expression {
+         
+            when {
+                expression {
                 params.ExecuteTest == true
+                }
             }
             steps {
             sh 'cat output_file.txt'
