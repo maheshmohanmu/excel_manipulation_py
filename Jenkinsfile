@@ -7,11 +7,16 @@ pipeline {
         booleanParam(name: 'ExecuteTest', defaultValue: true, description:'')
     }
     
+   tools {
+	maven 'maven-3.8.1'
+   }
+
     stages {
         stage("build") {
             steps {
             echo 'building python excel manipulation tool' 
             echo 'Auto trigger build test' 
+            sh 'mvn -v'
             sh 'python manipulate_excel.py > output_file.txt'
             }
            }
