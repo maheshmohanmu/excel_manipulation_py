@@ -11,6 +11,7 @@ pipeline {
         stage("build") {
             steps {
             echo 'building python excel manipulation tool' 
+            echo 'Auto trigger build test' 
             sh 'python manipulate_excel.py > output_file.txt'
             }
            }
