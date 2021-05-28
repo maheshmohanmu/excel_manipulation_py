@@ -42,8 +42,8 @@ pipeline {
         
     post {
         always {
-            mail to: 'maheshmohan.mu@gmail.com'
-            subject: "Pipeline succeded: ${currentBuild.fullDisplayName}"
+            mail to: 'maheshmohan.mu@gmail.com',
+            subject: "Pipeline succeded: ${currentBuild.fullDisplayName}",
             body: "${env.BUILD_URL} build has succeeded"
             }
         }
