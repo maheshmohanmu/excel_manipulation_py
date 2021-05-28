@@ -35,7 +35,7 @@ pipeline {
        
         stage("deploy") {
             steps {
-            echo "deploying code of version ${VERSION}"
+            echo "deploying code of version ${VERSION} from ${env.BRANCH_NAME} branch written by ${env.CHANGE_AUTHOR}"
             }
            }
         }
