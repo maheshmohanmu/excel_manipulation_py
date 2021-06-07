@@ -9,7 +9,7 @@ pipeline {
     
     environment {
             
-            COUNT_TMP = sh 'ls -la /tmp | wc -l'
+            COUNT_TMP = sh(script: "ls -la /tmp | wc -l", returnStdout: true)
     }
     
    tools {
