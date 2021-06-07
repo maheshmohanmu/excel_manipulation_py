@@ -7,6 +7,11 @@ pipeline {
         booleanParam(name: 'ExecuteTest', defaultValue: true, description:'')
     }
     
+    environment {
+            
+            COUNT_TMP = sh 'ls -la /tmp | wc -l'
+    }
+    
    tools {
 	maven 'maven-3.8.1'
    }
@@ -30,6 +35,7 @@ pipeline {
             }
             steps {
             sh 'cat output_file.txt'
+            echo "tmp directory has ${env.COUNT_TMP} files"
             }
            }
        
@@ -40,11 +46,11 @@ pipeline {
            }
         }
         
-    post {
+    /* post {
         always {
             mail to: 'maheshmohan.mu@gmail.com',
             subject: "Pipeline succeded: ${currentBuild.fullDisplayName}",
             body: "${env.BUILD_URL} build has succeeded"
             }
-        }
+        } */
     }
