@@ -1,5 +1,6 @@
 job('New-sample-excelpy-job-from-DSL'){
     description("Sample excelpy fro DSL on ${new Date()}")
+    
     scm {
         git {
             remote {
@@ -8,7 +9,18 @@ job('New-sample-excelpy-job-from-DSL'){
                 }
             }      
     }
+    
     triggers {
         scm('* * * * *')
+    }
+    
+    steps {
+        shell('python manipulate_excel.py > output_file.txt')
+        shell('cat output_file.txt')
+    }
+    
+    publishers {
+        archiveArtifacts('**/*.txt')
+    
     }
 }
