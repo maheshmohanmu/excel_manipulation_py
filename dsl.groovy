@@ -20,7 +20,7 @@ job('New-sample-excelpy-job-from-DSL'){
     }
     
     publishers {
-        archiveArtifacts('**/*.txt')
+        archiveArtifacts('*.txt')
     
     }
 }
