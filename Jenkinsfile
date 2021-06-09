@@ -41,6 +41,9 @@ pipeline {
        
         stage("deploy") {
             steps {
+            timeout(time:5, unit:'DAYS') {
+            input message:'Approve the deployment?'
+            }
             echo "deploying code of version ${VERSION} from ${env.BRANCH_NAME} branch written by ${env.CHANGE_AUTHOR}"
             }
            }
