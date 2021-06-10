@@ -56,4 +56,10 @@ pipeline {
             body: "${env.BUILD_URL} build has succeeded"
             }
         } */
+
+    post {
+        always {
+            archiveArtifacts artifacts: '*.txt'
+            }
+        }
     }
